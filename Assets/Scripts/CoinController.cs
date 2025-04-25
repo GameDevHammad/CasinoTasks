@@ -25,6 +25,8 @@ public class CoinController : MonoBehaviour
 
         Vector3 initialRotation = transform.eulerAngles;
     
+        SoundManager.Instance.PlayFlip();
+
         while (elapsed < duration)
         {
             float angle = Mathf.Lerp(0, totalRotation, elapsed / duration);
