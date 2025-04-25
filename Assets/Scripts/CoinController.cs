@@ -5,7 +5,8 @@ using System.Collections;
 public class CoinController : MonoBehaviour
 {
     private Action<int> onFlipComplete; // Callback to notify GameManager
-    private int resultSide; // 0 = Head, 1 = Tail
+    private int resultSide; // 1 = Head, 2 = Tail
+    private int lastResult = 1;
 
     public void Flip(int result, Action<int> callback)
     {
@@ -19,7 +20,8 @@ public class CoinController : MonoBehaviour
     {
         float duration = 1.0f;
         float elapsed = 0f;
-        float totalRotation = 720f; // Two full spins
+        float totalRotation = resultSide == lastResult ? 720f : 900f; // Coin Rotation
+        lastResult = resultSide;
 
         Vector3 initialRotation = transform.eulerAngles;
     

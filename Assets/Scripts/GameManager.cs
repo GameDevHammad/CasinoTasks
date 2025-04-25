@@ -55,10 +55,10 @@ public class GameManager : MonoBehaviour
 
         playerBalance -= currentBet;
         UpdateUI();
-        coinController.Flip(Random.Range(1, 3), OnFlipComplete); // 0 = Head, 1 = Tail
+        coinController.Flip(Random.Range(1, 3), OnFlipComplete); // 1 = Head, 2 = Tail
     }
 
-    private void OnFlipComplete(int outcome) // 0 = Head, 1 = Tail
+    private void OnFlipComplete(int outcome) // 1 = Head, 2 = Tail
     {
         CoinSide result = (CoinSide)outcome;
 
